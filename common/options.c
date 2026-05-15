@@ -186,7 +186,7 @@ OPTLIST const optlist[] = {
 /* O_SHOWMATCH	    4BSD */
 	{L("showmatch"),	NULL,		OPT_0BOOL,	0},
 /* O_SHOWMODE	  4.4BSD */
-	{L("showmode"),	NULL,		OPT_0BOOL,	0},
+	{L("showmode"),	NULL,		OPT_1BOOL,	0},
 /* O_SIDESCROLL	  4.4BSD */
 	{L("sidescroll"),	NULL,		OPT_NUM,	OPT_NOZERO},
 /* O_SLOWOPEN	    4BSD  */

@@ -229,18 +229,6 @@ cl_baud(SCR *sp, u_long *ratep)
 int
 cl_bell(SCR *sp)
 {
-	if (F_ISSET(sp, SC_EX | SC_SCR_EXWROTE | SC_SCR_EX))
-		(void)write(STDOUT_FILENO, "\07", 1);		/* \a */
-	else {
-		/*
-		 * Vi has an edit option which determines if the terminal
-		 * should be beeped or the screen flashed.
-		 */
-		if (O_ISSET(sp, O_FLASH))
-			(void)flash();
-		else
-			(void)beep();
-	}
 	return (0);
 }
 
