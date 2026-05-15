@@ -1008,9 +1008,11 @@ leftmargin:		tp->lb[tp->cno - 1] = ' ';
 		 * colon command line because the cursor is at the last search
 		 * point in the screen.  So, if incrementally searching, erase
 		 * the erased characters from the screen.
+		 *
+		 * Modern users expect the character to be erased
+		 * immediately.
 		 */
-		if (FL_ISSET(is_flags, IS_RUNNING))
-			tp->lb[tp->cno] = ' ';
+		tp->lb[tp->cno] = ' ';
 
 		/*
 		 * Increment overwrite, decrement ai if deleted.
@@ -1098,15 +1100,13 @@ leftmargin:		tp->lb[tp->cno - 1] = ' ';
 					break;
 				--tp->cno;
 				++tp->owrite;
-				if (FL_ISSET(is_flags, IS_RUNNING))
-					tp->lb[tp->cno] = ' ';
+				tp->lb[tp->cno] = ' ';
 			}
 		else {
 			if (LF_ISSET(TXT_ALTWERASE)) {
 				--tp->cno;
 				++tp->owrite;
-				if (FL_ISSET(is_flags, IS_RUNNING))
-					tp->lb[tp->cno] = ' ';
+				tp->lb[tp->cno] = ' ';
 			}
 			if (tp->cno > max)
 				tmp = inword(tp->lb[tp->cno - 1]);
@@ -1116,8 +1116,7 @@ leftmargin:		tp->lb[tp->cno - 1] = ' ';
 					break;
 				--tp->cno;
 				++tp->owrite;
-				if (FL_ISSET(is_flags, IS_RUNNING))
-					tp->lb[tp->cno] = ' ';
+				tp->lb[tp->cno] = ' ';
 			}
 		}
 
