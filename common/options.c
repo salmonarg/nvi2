@@ -356,7 +356,7 @@ opts_init(SCR *sp, int *oargs)
 	 */
 	OI(O_TMPDIR,
 	    L("directory=%s"), (s = getenv("TMPDIR")) == NULL ? _PATH_TMP : s);
-	OI(O_ESCAPETIME, L("escapetime=6"));
+	OI(O_ESCAPETIME, L("escapetime=1"));
 	OI(O_FILEC, L("filec=\t"));
 	OI(O_KEYTIME, L("keytime=6"));
 	OI(O_MATCHCHARS, L("matchchars=()[]{}"));
